@@ -1,0 +1,19 @@
+{% include "header.html" %}
+<h1>Order history</h1>
+
+{% if session["user"] is defined %}
+
+{% for x in pastorders_list %}
+
+<li>{{x["name"]}} {{x["qty"]}} {{x["subtotal"]}}</li>
+
+{% endfor %}
+
+{% else %}
+
+<div>No orders have been made yet</div>
+<br>
+<a href="/cart">back to cart</a>
+
+{% endif %}
+{% include "footer.html" %}
